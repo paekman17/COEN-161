@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+</head>
+<body>
+	<script>
+
+		/* Test data */
+		const minArray = [5, 4, 3, 2, 1];
+		const str1 = "racecar";
+		const str2 = "madame";
+		const str3 = "palindrome";
+		const occurArray = ["one", "two", "two", "three", "three", "three"];
+		
+		/* 
+			1. Write a function to find the min in the given array 
+		*/
+		function findMin(arr) {
+			let min = arr[0];
+			for (let i = 1; i < arr.length; i++) {
+				if (arr[i] < min) {
+					min = arr[i]
+				}
+			}
+			return min;
+		}
+
+		// call and log the result
+		console.log(findMin(minArray));
+
+		/* 
+			2. Write a function that returns true if a string is a palindrome, otherwise return false 
+		*/
+		function isPalindrome(str) {
+			let reverseStr = "";
+			for (let i = str.length - 1; i >= 0; i--) {
+				reverseStr += str[i];
+			}
+			if (str == reverseStr) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		console.log(isPalindrome(str1));
+		console.log(isPalindrome(str2));
+		console.log(isPalindrome(str3));
+
+		/* 
+			3. Write a function that returns the string that occurs the most in an array 
+		*/
+		function maxOccurs(arr) {
+			if (arr.length == 0) {
+				return null;
+			}
+			let modeMap = {};
+			let modeStr = arr[0];
+			let maxCount = 1;
+			for (let i = 0; i < arr.length; i++) {
+				let curr = arr[i];
+				if (modeMap[curr] == null) {
+					modeMap[curr] = 1;
+				}
+				else {
+					modeMap[curr] += 1;
+				}
+				if (modeMap[curr] > maxCount) {
+					modeStr = curr;
+					maxCount = modeMap[curr];
+				}
+			}
+			return modeStr;
+		}
+
+		console.log(maxOccurs(occurArray));
+
+	</script>
+</body>
+</html>
