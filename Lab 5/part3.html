@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 4 - Part 3</title>
+</head>
+<body>
+	<button id="btn0">Button 1!</button>
+	<button id="btn1">Button 2!</button>
+	<button id="btn2">Button 3!</button>
+
+	<script>
+	    let btnNum;
+	    for (btnNum = 0; btnNum < 3; btnNum++) {
+	        // set an onclick handler for each button
+	        document.getElementById('btn' + btnNum).onclick = (function(curNum) {
+	            // alert the message
+				return function() {
+					alert("I am button " + (curNum + 1) + "!");
+				}
+	        })(btnNum);
+	    }
+	</script>
+</body>
+</html>

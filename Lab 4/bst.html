@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Search Tree</title>
+</head>
+<body>
+	<script type="text/javascript" src="http://students.engr.scu.edu/~adiaztos/resources/testBst.js"></script>
+	<script>
+		// Implement a Binary Search Tree using JS Constructors and Pro
+
+		(function() {
+			"use strict";
+
+			function Node(val) {
+				this.value = val;
+				this.left = null;
+				this.right = null;
+			}
+
+
+			function BinarySearchTree() {
+				this.root = null;
+			}
+
+			BinarySearchTree.prototype.insert = function (data) {
+				const newNode = new Node(data);
+
+				if (this.root === null) { // if there's no root, set the new node to that
+					this.root = newNode;
+				} else {
+					let current = this.root;
+					while (current != null) { // while we're recursing on an existing node...
+						if (data < current.value) {
+							if (!current.left) { // if there's no left child, insert it there
+								current.left = newNode;
+								break;
+							} else {
+								current = current.left;
+							}
+						} else {
+							if (!current.right) {
+								current.right = newNode;
+								break;
+							} else {
+								current = current.right;
+							}
+						}
+					}
+				}
+			};
+
+			BinarySearchTree.prototype.search = function (data) {
+				let current = this.root;
+				while (current != null) { // while we're recursing on an existing node...
+					if (current.value == data) {
+						return current;
+					} else if (current.value > data) {
+						current = current.left;
+					} else {
+						current = current.right;
+					}
+				}
+			};
+
+			BinarySearchTree.prototype.inorder = function (fn) {
+				let current = this.root;
+
+				function traverse(node) {
+					if (node != null) {
+						traverse(node.left);
+						fn(node.value);
+						traverse(node.right);
+					}
+				}
+
+				traverse(current);
+			};
+
+			let bst = new BinarySearchTree();
+			// Uncomment this line to test your complete BST - make sure to pass a BST object created with the new keyword
+			testBst(bst);
+		})();
+	</script>
+</body>
+</html>

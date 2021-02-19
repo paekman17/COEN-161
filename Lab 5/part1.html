@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 4 - Part 1</title>
+	<style>
+		p[id] {
+			height: 100px;
+		}
+
+		.flashy {
+		  animation: blinker 1s linear infinite;
+		}
+
+		@keyframes blinker {  
+		  50% { opacity: 0; }
+		}
+	</style>
+</head>
+<body>
+	<label>My Input: <input type="text" id="myInput"></label><button type="button">Submit</button>
+	<p>All UpperCase</p>
+	<hr>
+	<p id="allUpper"></p>
+	<p>All Lowercase</p>
+	<hr>
+	<p id="allLower"></p>
+	<p>Red Text</p>
+	<hr>
+	<p id="redText"></p>
+	<p>Flashy Text</p>
+	<hr>
+	<p id="flashyText"></p>
+	<script>
+		// Your code goes here
+		const input = document.getElementById("myInput");
+
+		input.onchange = function() {
+			// make input uppercase
+			document.getElementById("allUpper").innerHTML = input.value.toUpperCase();
+
+			// make input lowercase
+			document.getElementById("allLower").innerHTML = input.value.toLowerCase();
+
+			// make input red
+			document.getElementById("redText").innerHTML = input.value.fontcolor("red");
+
+			// make input flashy
+			document.getElementById("flashyText").innerHTML = input.value;
+			document.getElementById("flashyText").className = "flashy";
+		}
+	</script>
+</body>
+</html>
