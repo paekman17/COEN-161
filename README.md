@@ -13,3 +13,7 @@ Lab 3: Learned how to access the developer console and write JavaScript function
 Lab 4: Implemented a binary search tree (BST) using JavaScript classes
 
 Lab 5: Utilized JavaScript with DOM methods and completed a workable Snake game
+
+Lab 6: Used the XMLHttpRequest object to make HTTP requests to a server for additional resources
+
+Lab 7: Created the back-end of a to-do application through POST, GET, and AJAX requests
